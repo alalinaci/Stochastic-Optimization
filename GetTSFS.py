@@ -2,7 +2,7 @@
 """
 Created on Thu Mar 31 01:19:06 2022
 
-@author: Gayatri Dhankhar
+@author: alalinaci
 
 This script finds full factorial TS and FS
 
