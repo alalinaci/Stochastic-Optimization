@@ -2,7 +2,7 @@
 """
 Created on Mon Mar  7 17:10:21 2022
 
-@author: Gayatri Dhankhar
+@author: alalinaci
 """
 
 import random
