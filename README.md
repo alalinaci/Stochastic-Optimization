@@ -27,6 +27,7 @@ FS = 69.007+3.249*L+0.281*L-3.530*L+1.145*S+1.418*S-2.562*S+1.502*D-1.501*D-0.00
 Z = [w*tensile_strength_list[i]+w*flexural_strength_list[i] for i in range(len(tensile_strength_list))]
 ```
 * Populate and save the data in excel sheet
+
 *PSO.py*
 * import and execute `get_flexural_strength()`, `get_tensile_strength()` and `get_fitness_value()` function from `GetTSFS.py`
 * Read data from excel to calculate `TSmax` and `FSmax`
