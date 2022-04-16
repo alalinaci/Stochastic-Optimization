@@ -1,7 +1,7 @@
 random
 math
 matplotlib.pyplot
-numpy as np
+numpy
 openpyxl
 binascii
 os
