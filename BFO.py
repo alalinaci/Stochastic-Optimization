@@ -2,11 +2,17 @@
 # (c) Copyright 2013 Max Nanis [max@maxnanis.com].
 #https://gist.github.com/x0xMaximus/8626921
 
-import os, random, math, csv, binascii
+import os, random, math, csv, binascii, GetBfoTSFS, openpyxl
+import numpy as np
+
+GetBfoTSFS.get_tensile_flexural_strength()
+GetBfoTSFS.get_fitness_value()
+wb = openpyxl.load_workbook(r'''DATA_PSO_BFO.xlsx''')
+ws = wb['PETG']
 
 class BFOA():
 
-  def __init__(self, pop_size = 50, problem_size = 2, dimension = [0, 1], elim_disp_steps = 2, repro_steps = 4, chem_steps = 50):
+  def __init__(self, pop_size = 20, problem_size = 2, dimension = [0, 1], elim_disp_steps = 2, repro_steps = 2, chem_steps = 10):
     self.step_index = 0
     self.run_id = binascii.hexlify(os.urandom(6)).decode()
 
@@ -35,12 +41,12 @@ class BFOA():
 
 
   def objective_function(self, vector):
-    load = random.randint(1,50)
-    cross_section = [1.3, 1.9, 2.6, 3.8, 3.9, 5.7]
-    for area in cross_section:
-      tensile_strength = (load/area)
-#    y = A + 2 + sum([(x**2 - A * np.cos(2 * math.pi * x))for x in X])
-    return tensile_strength
+    w = 0.5
+    TSmax = max(GetBfoTSFS.tensile_strength_list)
+    FSmax = max(GetBfoTSFS.flexural_strength_list)
+    Zmax = w*TSmax+w*FSmax
+    return Zmax
+    #return (x*tensile_strength for x in vector)
     #return sum(x**2.0 for x in vector)
 
 
@@ -158,7 +164,7 @@ class BFOA():
       # Also capture these steps
       self.save()
       self.step_index += 1
-
+    #print("BFO Optimized: ", best['fitness'])
     return best
 
 
@@ -202,7 +208,25 @@ class BFOA():
       self.step_index += 1
 
 
-    print ("best :: ", best)
+    print ("Objective function value (BFO):", best['fitness'])
+    fitness_value_list = []
+    for row in range(3,ws.max_row):  
+      for column in "J":
+        cell_name = "{}{}".format(column, row)
+        fitness_value_list.append(ws[cell_name].value)
+    # Finding out the parameters corresponding to the optimal solution
+    arr = np.asarray(fitness_value_list)
+    i = (np.abs(arr - best['fitness'])).argmin()
+    coordinate = []
+    for row in ws.rows:
+        for cell in row:
+            if row[9].value == arr[i]:
+                coordinate.append(cell.coordinate)
+    LT = ws[coordinate[1]].value
+    FR = ws[coordinate[2]].value
+    ID = ws[coordinate[3]].value
+    print('--------------------\nParameters corresponding to the optimal solution are:\nLayer Thickness: ', LT, 'mm\nFill Rate: ', FR, 'mm/s\nInfill Density: ', ID, '%')
+    wb.save('DATA_PSO_BFO.xlsx')
     return best
 
 
@@ -215,6 +239,6 @@ if __name__ == "__main__":
   except RuntimeError:
     print ("A 'results' folder must be created in the project directory")
 
-  bfoa = BFOA(pop_size = 600, elim_disp_steps = 3, repro_steps = 4, chem_steps = 40, )
+  bfoa = BFOA(pop_size = 50, elim_disp_steps = 3, repro_steps = 4, chem_steps = 10, )
 
   best = bfoa.search()

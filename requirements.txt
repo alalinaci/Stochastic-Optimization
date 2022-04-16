@@ -4,3 +4,5 @@ matplotlib.pyplot
 numpy as np
 openpyxl
 binascii
+os
+csv
