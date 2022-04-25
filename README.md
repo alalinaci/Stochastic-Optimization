@@ -1,3 +1,5 @@
+<a href="https://www.buymeacoffee.com/alalinaci" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174"></a>
+
 ## Stochastic Optimization
 ### Particle Swarm Optimization
 #### Objective: Optimizing PETG FDA Tensile and Flexural Strength Using Linear Regression Analysis Equation
