@@ -1,5 +1,3 @@
-<a href="https://www.buymeacoffee.com/alalinaci" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174"></a>
-
 ## Stochastic Optimization
 ### Particle Swarm Optimization
 #### Objective: Optimizing PETG FDA Tensile and Flexural Strength Using Linear Regression Analysis Equation
@@ -67,4 +65,10 @@ c2=2
 3. Run `BFO.py`
 4. Check the results in excel file under PETG worksheet 
 
-***Note:*** *Please execute PSO first, followed by BFO*
+#### Steps to Execute PSO-BFO Hybrid:
+1. Clone the repository as `git clone https://github.com/alalinaci/Stochastic-Optimization.git` (if you have git setup already, else download the files as zip and extract)
+2. Make sure that the excel file is closed before executing any python script, as values can't be written into an open excel file and the script will throw "Permission" error
+3. Run `Hybrid.py`
+4. Check the results in excel file under PETG worksheet 
+
+***Note:*** *Please execute PSO first, followed by BFO, then Hybrid*

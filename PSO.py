@@ -55,8 +55,8 @@ nv = 2                   # number of variables is taken as one, as we only inten
 mm = 1                   # since we're maximizing tensile strength, for min mm=-1
   
 # THE FOLLOWING PARAMETERS ARE OPTIONAL.
-particle_size=50         # number of particles
-iterations=100           # max number of iterations                    # inertia constant is set to 0.5 for both TS and FS
+particle_size=10         # number of particles
+iterations=10           # max number of iterations                    # inertia constant is set to 0.5 for both TS and FS
 c1=2                     # cognative constant
 c2=2                     # social constant
 # END OF THE CUSTOMIZATION SECTION
