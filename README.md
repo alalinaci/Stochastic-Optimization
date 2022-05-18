@@ -1,6 +1,7 @@
 ## Stochastic Optimization
 ### Particle Swarm Optimization
 #### Objective: Optimizing PETG FDA Tensile and Flexural Strength Using Linear Regression Analysis Equation
+![Demo](https://github.com/alalinaci/Stochastic-Optimization)
 #### Pre-requisites: 
 * An excel worksheet containing layer thickness, feed rate and infill density parameters
 * The excel sheet must be in the same directory as `PSO.py` and `GetTSFS.py`
