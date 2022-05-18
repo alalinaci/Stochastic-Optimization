@@ -57,18 +57,24 @@ c2=2
 1. Clone the repository as `git clone https://github.com/alalinaci/Stochastic-Optimization.git` (if you have git setup already, else download the files as zip and extract)
 2. Make sure that the excel file is closed before executing any python script, as values can't be written into an open excel file and the script will throw "Permission" error
 3. Run `PSO.py`
-4. Check the results in excel file under PETG worksheet 
+4. Check the results in excel file under PSO BFO Hybrid worksheet 
 
 #### Steps to Execute BFO:
 1. Clone the repository as `git clone https://github.com/alalinaci/Stochastic-Optimization.git` (if you have git setup already, else download the files as zip and extract)
 2. Make sure that the excel file is closed before executing any python script, as values can't be written into an open excel file and the script will throw "Permission" error
 3. Run `BFO.py`
-4. Check the results in excel file under PETG worksheet 
+4. Check the results in excel file under PSO BFO Hybrid worksheet 
 
 #### Steps to Execute PSO-BFO Hybrid:
 1. Clone the repository as `git clone https://github.com/alalinaci/Stochastic-Optimization.git` (if you have git setup already, else download the files as zip and extract)
 2. Make sure that the excel file is closed before executing any python script, as values can't be written into an open excel file and the script will throw "Permission" error
 3. Run `Hybrid.py`
-4. Check the results in excel file under PETG worksheet 
+4. Check the results in excel file under PSO BFO Hybrid worksheet 
+
+#### Steps to Display Graphs:
+1. Clone the repository as `git clone https://github.com/alalinaci/Stochastic-Optimization.git` (if you have git setup already, else download the files as zip and extract)
+2. Make sure that the excel file is closed before executing any python script, as values can't be written into an open excel file and the script will throw "Permission" error
+3. Run `Graphs.py`
+4. Check the results in excel file under PSO BFO Hybrid worksheet 
 
 ***Note:*** *Please execute PSO first, followed by BFO, then Hybrid*
